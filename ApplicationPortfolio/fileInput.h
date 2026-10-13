@@ -12,12 +12,13 @@ const vector<string> TESTFILES = {
 	"test2_one_delivery.txt",
 	"test3_three_chain.txt",
 	"test4_overlapping.txt",
-	"test5_mixed_order.txt",
-    "test6_partial_overlap.txt",
-    "test7_long_chain.txt",
-    "test8_many_overlaps.txt",
-    "test9_mixed_intervals.txt",
-    "test10_duplicate_endpoints.txt"
+	"test5A_mixed_order.txt",
+    "test5B_mixed_order.txt",
+    "test5C_mixed_order.txt",
+    "test6A_partial_overlap.txt",
+    "test6B_partial_overlap.txt",
+    "test6C_partial_overlap.txt",
+    "test7_custom.txt"
 };
 
 struct Delivery {

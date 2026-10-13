@@ -54,7 +54,7 @@ int main() {
 			case 3:
 				// Call the function for minimizing the number of deliveries rejected for 1 driver
 				cout << "Minimizing deliveries rejected for file: " << TESTFILES[i] << endl;
-				// minimizeRejectedDeliveries(deliveries);
+                removeIncompatibleDeliveries(deliveries);
 				break;
             default:
                 break;

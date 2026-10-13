@@ -84,3 +84,28 @@ inline void minimizeDrivers(vector<Delivery>& deliveries)
 
 }
 
+inline void removeIncompatibleDeliveries(vector<Delivery>& deliveries)
+{
+	vector<Delivery> sortedDeliveries = sortDeliveriesByEndTime(deliveries);
+	vector<Delivery> compatibleDeliveries;
+	vector<Delivery> incompatibleDeliveries;
+	for (int i = 0; i < sortedDeliveries.size(); i++)
+	{
+		if (compatibleDeliveries.empty() || sortedDeliveries[i].startTime >= compatibleDeliveries.back().endTime)
+		{
+			compatibleDeliveries.push_back(sortedDeliveries[i]);
+		}
+		else
+		{
+			incompatibleDeliveries.push_back(sortedDeliveries[i]);
+		}
+	}
+	cout << "Minimum deliveries to remove: " << incompatibleDeliveries.size() << endl;
+	cout << "Deliveries to remove: ";
+	for (const auto delivery : incompatibleDeliveries)
+	{
+		cout << delivery.id << " ";
+	}
+	cout << endl << endl;
+}
+
