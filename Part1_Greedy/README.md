@@ -25,8 +25,8 @@ Task A
 3. My algorithm runs on O(n log n) time, dominated by the sorting algorithm. Sorting by soonest end time takes O(n log n).
    The algorithm itself takes O(n) time, as it always runs through the array of deliveries exactly once and all other operations are O(1).
 
-My algorithm <img width="1345" height="1122" alt="image" src="https://github.com/user-attachments/assets/84d67d55-d944-4b30-bf80-277cb24d04c8" />
-
+My algorithm produces the following output with the provided test cases:
+<img width="1260" height="1175" alt="image" src="https://github.com/user-attachments/assets/9cf505b3-2a4b-44e7-9a34-729a31d10de5" />
 
 Task B
 1. The priority queue stores the soonest end-time of jobs assigned to drivers. For the purposes of keeping track of output,
@@ -43,6 +43,10 @@ Task B
    The algorithm itself takes O(n) time, as it is guaranteed to go through the array of deliveries exactly once, and the only comparison used is a single
    check on the top of the queue, which is O(1), and insertion to both the queue and the vectors are also O(1).
 
+My algorithm produces the following output with the provided test cases:
+<img width="1385" height="1140" alt="image" src="https://github.com/user-attachments/assets/a3db143e-964b-4cae-ba45-26787cc0dae5" />
+
+
 Task C
 1. This problem is nearly identical in implementation to Task A, requiring us to find the greatest number of deliveries possible for one driver (exactly task A)
    and then determine how many deliveries remain and must be rejected.
@@ -50,6 +54,10 @@ Task C
 3. This algorithm runs in O(n log n) time, dominated by the sorting. The sorting takes O(n log n) time.
    The algorithm is identical to the one in Task A, and so runs in the same amount of time. The extra step to keep track of what deliveries are rejected
    is O(1), and so makes no difference.
+
+My algorithm produces the following output with the provided test cases:
+<img width="1385" height="1140" alt="image" src="https://github.com/user-attachments/assets/d17a530e-6965-4ac1-b90c-2c60d9e7fcba" />
+
 
 Task D
 Consider the set of deliveries j1, j2, and j3, such that:
