@@ -42,16 +42,28 @@ int main() {
         switch (choice){
 
             case 1:
+				if (TESTFILES[i] == "test5B_mixed_order.txt" || TESTFILES[i] == "test6B_partial_overlap.txt"
+                    || TESTFILES[i] == "test5C_mixed_order.txt" || TESTFILES[i] == "test6C_partial_overlap.txt") {
+					continue; // Skip non-required test files for algorithm 1
+				}
 				// Call the function for maximizing deliveries with 1 driver
 				cout << "Maximizing deliveries for file: " << TESTFILES[i] << endl;
 				maximizeDeliveries(deliveries);
 				break;
 			case 2:
+                if (TESTFILES[i] == "test5A_mixed_order.txt" || TESTFILES[i] == "test6A_partial_overlap.txt"
+                    || TESTFILES[i] == "test5C_mixed_order.txt" || TESTFILES[i] == "test6C_partial_overlap.txt") {
+                    continue; // Skip non-required test files for algorithm 2
+                }
 				// Call the function for minimizing the number of drivers for all deliveries
 				cout << "Minimizing number of drivers for file: " << TESTFILES[i] << endl;
 				minimizeDrivers(deliveries);
 				break;
 			case 3:
+                if (TESTFILES[i] == "test5B_mixed_order.txt" || TESTFILES[i] == "test6B_partial_overlap.txt"
+                    || TESTFILES[i] == "test5A_mixed_order.txt" || TESTFILES[i] == "test6A_partial_overlap.txt") {
+                    continue; // Skip non-required test files for algorithm 3
+                }
 				// Call the function for minimizing the number of deliveries rejected for 1 driver
 				cout << "Minimizing deliveries rejected for file: " << TESTFILES[i] << endl;
                 removeIncompatibleDeliveries(deliveries);
