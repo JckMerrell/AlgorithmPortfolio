@@ -58,7 +58,7 @@ Task C
 My algorithm produces the following output with the provided test cases:
 <img width="1357" height="1017" alt="image" src="https://github.com/user-attachments/assets/d479116a-66a6-4510-9022-e8d94959c2a7" />
 
-Task D
+Task D <br>
 Consider the set of deliveries j1, j2, and j3, such that:
 R1 = 0, R2 = 0, R3 = 1
 P1 = 8, P2 = 6, P3 = 4
