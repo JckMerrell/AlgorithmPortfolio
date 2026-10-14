@@ -25,6 +25,9 @@ Task A
 3. My algorithm runs on O(n log n) time, dominated by the sorting algorithm. Sorting by soonest end time takes O(n log n).
    The algorithm itself takes O(n) time, as it always runs through the array of deliveries exactly once and all other operations are O(1).
 
+My algorithm <img width="1345" height="1122" alt="image" src="https://github.com/user-attachments/assets/84d67d55-d944-4b30-bf80-277cb24d04c8" />
+
+
 Task B
 1. The priority queue stores the soonest end-time of jobs assigned to drivers. For the purposes of keeping track of output,
    my implementation also stores the Driver itself, but this does not affect the algorithm.
@@ -46,4 +49,20 @@ Task C
 2. If the maximum possible deliveries from a set of n deliveries is k, then the number of deliveries which must be rejected is n-k.
 3. This algorithm runs in O(n log n) time, dominated by the sorting. The sorting takes O(n log n) time.
    The algorithm is identical to the one in Task A, and so runs in the same amount of time. The extra step to keep track of what deliveries are rejected
-   is O(1), and so makes no difference. 
+   is O(1), and so makes no difference.
+
+Task D
+Consider the set of deliveries j1, j2, and j3, such that:
+R1 = 0, R2 = 0, R3 = 1
+P1 = 8, P2 = 6, P3 = 4
+
+The greedy algorithm G selects j1 for T0, j2 for T1, and j3 for T2. 
+In this case, D1 = 0 so V1 = P1 = 8. D2 = 1, so V2 = P2/2 = 3, and D3 = 1, so V3 = P3/2 = 2. 
+The total value for G, VG = V1 + V2 + V3 = 8 + 3 + 2 = 13
+
+A better algorithm S would consider deliveries in descending order of value at time of assignment. 
+It selects j1 for T0 still, as it has a value of 8 at T0. It then selects j3 for T1 with a value of 4 at T0, and finally j2 for T2 with a value of 2 at T2. 
+In this case, D1 = 0 so V1 = P1 = 8. D3 = 0, so V3 = P3 = 4, and D2 = 2, so V2 = P2/3 = 2. 
+The total value for S, VS = V1 + V2 + V3 = 8 + 4 + 2 = 14. 
+
+The existence of this counterexample, where a different strategy produces more value than the proposed greedy strategy, proves that this greedy algorithm is not always optimal. 
