@@ -56,8 +56,7 @@ Task C
    is O(1), and so makes no difference.
 
 My algorithm produces the following output with the provided test cases:
-<img width="1385" height="1140" alt="image" src="https://github.com/user-attachments/assets/d17a530e-6965-4ac1-b90c-2c60d9e7fcba" />
-
+<img width="1357" height="1017" alt="image" src="https://github.com/user-attachments/assets/d479116a-66a6-4510-9022-e8d94959c2a7" />
 
 Task D
 Consider the set of deliveries j1, j2, and j3, such that:
