@@ -5,15 +5,24 @@
 #include <vector>
 #include <algorithm>
 #include <cmath>
+#include <sstream>
 
 using namespace std;
 
 const vector<string> CLOSESTPAIRFILES {
-    "ClosestPair1.txt",
-    "ClosestPair2.txt",
-    "ClosestPair3.txt",
-    "ClosestPair4.txt",
-    "ClosestPair5.txt"
+    "TestCases/ClosestPair1.txt",
+    "TestCases/ClosestPair2.txt",
+    "TestCases/ClosestPair3.txt",
+    "TestCases/ClosestPair4.txt",
+    "TestCases/ClosestPair5.txt"
+};
+
+const vector<string> COUNTINVERSIONSFILES {
+    "TestCases/CountInversions1.txt",
+    "TestCases/CountInversions2.txt",
+    "TestCases/CountInversions3.txt",
+    "TestCases/CountInversions4.txt",
+    "TestCases/CountInversions5.txt"
 };
 
 struct Location{
@@ -46,6 +55,27 @@ inline vector<Location> readLocationsFromFile(const string& filename) {
     }
 
     return locations;
+}
+
+inline void readIDSFromFile(const string& filename, vector<Location>& planned, vector<Location>& actual){
+    ifstream inputFile(filename);
+
+    if (!inputFile) {
+        throw runtime_error("Could not open file: " + filename);
+    }
+
+    Location location;
+    string line;
+    getline(inputFile, line, '\n');
+    stringstream s1(line);
+    while (s1 >> location.id) {
+        planned.push_back(location);
+    }
+    getline(inputFile, line, '\n');
+    stringstream s2(line);
+    while (s2 >> location.id) {
+        actual.push_back(location);
+    }
 }
 
 inline vector<Location> sortLocationsByX(const vector<Location>& locations) {
