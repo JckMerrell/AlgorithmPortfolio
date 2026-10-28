@@ -25,6 +25,28 @@ const vector<string> COUNTINVERSIONSFILES {
     "TestCases/CountInversions5.txt"
 };
 
+const vector<string> MEDOFMEDIANSFILES{
+    "TestCases/MedOfMedians1.txt",
+    "TestCases/MedOfMedians2.txt",
+    "TestCases/MedOfMedians3.txt",
+    "TestCases/MedOfMedians4.txt",
+    "TestCases/MedOfMedians5.txt",
+    "TestCases/MedOfMedians6.txt",
+    "TestCases/MedOfMedians7.txt",
+    "TestCases/MedOfMedians8.txt"
+};
+
+const vector<int> MEDIANOFMEDIANSTARGETS{
+    5,
+    2,
+    9,
+    4,
+    1,
+    5,
+    7,
+    12
+};
+
 struct Location{
     string id;
     int x;
@@ -76,6 +98,20 @@ inline void readIDSFromFile(const string& filename, vector<Location>& planned, v
     while (s2 >> location.id) {
         actual.push_back(location);
     }
+}
+
+inline vector<int> readTimeEstaimatesFromFile(const string& filename){
+    ifstream inputFile(filename);
+    vector<int> times;
+
+    if (!inputFile) {
+        throw runtime_error("Could not open file: " + filename);
+    }
+    int temp;
+    while(inputFile >> temp){
+        times.push_back(temp);
+    }
+    return times;
 }
 
 inline vector<Location> sortLocationsByX(const vector<Location>& locations) {
