@@ -60,7 +60,6 @@ pair<Location, Location> closestPairOfLocations(const vector<Location>& location
     }
 
     vector<Location> midlineStrip;
-    //Loop takes n time
     for (int i = 0; i < locationsY.size(); i++)
     {
         if (abs(locationsY[i].x - locationsX[mid].x) < d){

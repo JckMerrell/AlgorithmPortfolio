@@ -34,7 +34,7 @@ int deliveryTimeSelection(vector<int>& estimates, int left, int right, int targe
         return deliveryTimeSelection(estimates, left, pivotIndex - 1, target);
     } else {
         return deliveryTimeSelection(estimates, pivotIndex + 1, right, target - relativePivotIdx - 1);
-    }
+    }   
 }
 
 //Partitions the array such that all elements <= the pivot are on the left side, and all elements
