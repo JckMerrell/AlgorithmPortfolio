@@ -4,6 +4,14 @@
 #include <fstream>
 using namespace std;
 
+const vector<string> WEIGHTEDINTERVALFILES{
+    "TestCases/WeightedInterval1.txt",
+    "TestCases/WeightedInterval2.txt",
+    "TestCases/WeightedInterval3.txt",
+    "TestCases/WeightedInterval4.txt",
+    "TestCases/WeightedInterval5.txt"
+};
+
 struct Delivery{
     string id;
     int start;

@@ -1,4 +1,4 @@
-#include "fileInput3.h"
+#include "WeightedInterval.h"
 #include <algorithm>
 
 vector<Delivery> sortByFinishTime(const vector<Delivery>& deliveries) {
@@ -39,6 +39,10 @@ vector<int> computePreviousIntervals(const vector<Delivery>& deliveries) {
 
 vector<int> weightedIntervalScheduling(const vector<Delivery>& deliveries) {
     int n = deliveries.size();
+    if (n == 0) {
+        return {};
+    }
+
     vector<int> dp(n, 0);
     vector<int> p = computePreviousIntervals(deliveries);
 
