@@ -28,6 +28,13 @@ const vector<int> DISCRETEKNAPSACKCAPACITIES{
     6
 };
 
+const vector<string> MAXIMUMREMOVALFILES{
+    "TestCases/MaximumRemovals1Repeats.txt",
+    "TestCases/MaximumRemovals2NoDeletion.txt",
+    "TestCases/MaximumRemovals3Multiple.txt",
+    "TestCases/MaximumRemovals4Longer.txt"
+};
+
 struct IntervalDelivery{
     string id;
     int start;
@@ -68,6 +75,12 @@ struct FuelDelivery{
     }
 };
 
+struct Record{
+    string source;
+    string pattern;
+    vector<int> targetIndicies;
+};
+
 inline vector<IntervalDelivery> readIntervalDeliveriesFromFile(const string& filename) {
     ifstream inputFile(filename);
     vector<IntervalDelivery> deliveries;
@@ -100,4 +113,23 @@ inline vector<FuelDelivery> readFuelDeliveriesFromFile(const string& filename) {
     }
 
     return deliveries;
+}
+
+inline Record readRecordFromFile(const string& filename) {
+    ifstream inputFile(filename);
+    Record record;
+
+    if (!inputFile) {
+        throw runtime_error("Could not open file: " + filename);
+    }
+
+    inputFile >> record.source >> record.pattern;
+    int i = 0;
+    while (inputFile >> i)
+    {
+        record.targetIndicies.push_back(i);
+    }
+    
+
+    return record;
 }
