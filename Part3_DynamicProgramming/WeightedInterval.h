@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<Delivery> sortByFinishTime(const vector<Delivery>& deliveries);
-int findLastNonConflicting(const vector<Delivery>& deliveries, int index);
-vector<int> computePreviousIntervals(const vector<Delivery>& deliveries);
-vector<int> weightedIntervalScheduling(const vector<Delivery>& deliveries);
+vector<IntervalDelivery> sortByFinishTime(const vector<IntervalDelivery>& deliveries);
+int findLastNonConflicting(const vector<IntervalDelivery>& deliveries, int index);
+vector<int> computePreviousIntervals(const vector<IntervalDelivery>& deliveries);
+IntervalDelivery weightedIntervalScheduling(const vector<IntervalDelivery>& deliveries);

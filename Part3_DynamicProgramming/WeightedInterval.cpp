@@ -1,15 +1,15 @@
 #include "WeightedInterval.h"
 #include <algorithm>
 
-vector<Delivery> sortByFinishTime(const vector<Delivery>& deliveries) {
-    vector<Delivery> sortedDeliveries = deliveries;
-    sort(sortedDeliveries.begin(), sortedDeliveries.end(), [](const Delivery& a, const Delivery& b) {
+vector<IntervalDelivery> sortByFinishTime(const vector<IntervalDelivery>& deliveries) {
+    vector<IntervalDelivery> sortedDeliveries = deliveries;
+    sort(sortedDeliveries.begin(), sortedDeliveries.end(), [](const IntervalDelivery& a, const IntervalDelivery& b) {
         return a.finish < b.finish;
     });
     return sortedDeliveries;
 }
 
-int findLastNonConflicting(const vector<Delivery>& deliveries, int index) {
+int findLastNonConflicting(const vector<IntervalDelivery>& deliveries, int index) {
     int low = 0;
     int high = index - 1;
     int result = -1;
@@ -28,7 +28,7 @@ int findLastNonConflicting(const vector<Delivery>& deliveries, int index) {
     return result;
 }
 
-vector<int> computePreviousIntervals(const vector<Delivery>& deliveries) {
+vector<int> computePreviousIntervals(const vector<IntervalDelivery>& deliveries) {
     int n = deliveries.size();
     vector<int> p(n, -1);
     for (int j = 0; j < n; ++j) {
@@ -37,25 +37,25 @@ vector<int> computePreviousIntervals(const vector<Delivery>& deliveries) {
     return p;
 }
 
-vector<int> weightedIntervalScheduling(const vector<Delivery>& deliveries) {
+IntervalDelivery weightedIntervalScheduling(const vector<IntervalDelivery>& deliveries) {
     int n = deliveries.size();
     if (n == 0) {
         return {};
     }
 
-    vector<int> dp(n, 0);
+    vector<IntervalDelivery> dp(n);
     vector<int> p = computePreviousIntervals(deliveries);
 
-    dp[0] = deliveries[0].profit;
+    dp[0] = deliveries[0];
 
     for (int j = 1; j < n; ++j) {
-        int includeProfit = deliveries[j].profit;
+        IntervalDelivery addedProfit = deliveries[j];
         if (p[j] != -1) {
-            includeProfit += dp[p[j]];
+            addedProfit = addedProfit +  dp[p[j]];
         }
-        dp[j] = max(dp[j - 1], includeProfit);
+        dp[j] = dp[j-1].profit > addedProfit.profit ? dp[j-1] : addedProfit; 
     }
 
-    return dp;
+    return dp.back();
 }
 
