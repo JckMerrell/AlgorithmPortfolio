@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Dynamic Programming app",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/Part3_DynamicProgramming/algorithm_portfolio",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/Part3_DynamicProgramming",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: build Dynamic Programming app"
+        }
+    ]
+}

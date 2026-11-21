@@ -1,6 +1,7 @@
 #include "WeightedInterval.h"
 #include <algorithm>
 
+//Sorting function, O(n log n)
 vector<IntervalDelivery> sortByFinishTime(const vector<IntervalDelivery>& deliveries) {
     vector<IntervalDelivery> sortedDeliveries = deliveries;
     sort(sortedDeliveries.begin(), sortedDeliveries.end(), [](const IntervalDelivery& a, const IntervalDelivery& b) {
@@ -8,7 +9,7 @@ vector<IntervalDelivery> sortByFinishTime(const vector<IntervalDelivery>& delive
     });
     return sortedDeliveries;
 }
-
+//Binary search to find the p(i) for one item, O(log n)
 int findLastNonConflicting(const vector<IntervalDelivery>& deliveries, int index) {
     int low = 0;
     int high = index - 1;
@@ -27,7 +28,7 @@ int findLastNonConflicting(const vector<IntervalDelivery>& deliveries, int index
 
     return result;
 }
-
+//Loop to find the p(i) for all items, O(n log n) total
 vector<int> computePreviousIntervals(const vector<IntervalDelivery>& deliveries) {
     int n = deliveries.size();
     vector<int> p(n, -1);
@@ -37,6 +38,10 @@ vector<int> computePreviousIntervals(const vector<IntervalDelivery>& deliveries)
     return p;
 }
 
+/*Main algorithm. Bottom Up dynamic programming approach to solve the weighted interval scheduling problem.
+ * Time complexity: O(n log n) due to sorting and binary search for p(i).
+ * Space complexity: O(n) for the dp array and p array.
+*/
 IntervalDelivery weightedIntervalScheduling(const vector<IntervalDelivery>& deliveries) {
     int n = deliveries.size();
     if (n == 0) {

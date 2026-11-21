@@ -1,5 +1,9 @@
 #include "DiscreteKnapsack.h"
 
+/*Main Algorithm. Bottom Up dynamic programming approach using a 2d dp array.
+ * Time complexity: O(nW) where n is the number of items and W is the maximum weight.
+ * Space complexity: O(nW) for the dp array.
+*/
 FuelDelivery discreteKnapsack(const vector<FuelDelivery>& deliveries, int weight){
     vector<vector<FuelDelivery> > dp(deliveries.size() + 1, vector<FuelDelivery>(weight + 1));
 

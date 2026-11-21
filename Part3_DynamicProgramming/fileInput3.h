@@ -5,14 +5,15 @@
 using namespace std;
 
 const vector<string> WEIGHTEDINTERVALFILES{
-    "TestCases/WeightedInterval1.txt",
-    "TestCases/WeightedInterval2.txt",
-    "TestCases/WeightedInterval3.txt",
-    "TestCases/WeightedInterval4.txt",
-    "TestCases/WeightedInterval5.txt"
+    "TestCases/WeightedInterval0Example.txt",
+    "TestCases/WeightedInterval1AlignedEnds.txt",
+    "TestCases/WeightedInterval2Empty.txt",
+    "TestCases/WeightedInterval3ShortestFinishTimeFailure.txt",
+    "TestCases/WeightedInterval4Overlap.txt"
 };
 
 const vector<string> DISCRETEKNAPSACKFILES{
+    "TestCases/DiscreteKnapsack0Example.txt",
     "TestCases/DiscreteKnapsack1Empty.txt",
     "TestCases/DiscreteKnapsack2Simple.txt",
     "TestCases/DiscreteKnapsack3LargeAndSmall.txt",
@@ -21,7 +22,8 @@ const vector<string> DISCRETEKNAPSACKFILES{
 };
 
 const vector<int> DISCRETEKNAPSACKCAPACITIES{
-    50,
+    10,
+    50000,
     18,
     10,
     10,
@@ -32,7 +34,9 @@ const vector<string> MAXIMUMREMOVALFILES{
     "TestCases/MaximumRemovals1Repeats.txt",
     "TestCases/MaximumRemovals2NoDeletion.txt",
     "TestCases/MaximumRemovals3Multiple.txt",
-    "TestCases/MaximumRemovals4Longer.txt"
+    "TestCases/MaximumRemovals4Longer.txt",
+    "TestCases/MaximumRemovals5FullDeletion.txt",
+    "TestCases/MaximumRemovals6Impossible.txt"
 };
 
 struct IntervalDelivery{
@@ -40,6 +44,7 @@ struct IntervalDelivery{
     int start;
     int finish;
     int profit;
+    
     IntervalDelivery(){
         id = "";
         start = 0;

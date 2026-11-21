@@ -2,7 +2,12 @@
 #include <climits>
 #include <unordered_set>
 
-
+/*Main Algorithm. Bottom Up dynamic programming approach using a 2d dp array.
+ * Time complexity: O(mn) where m is the length of the source string and n is the length of the pattern string.
+ * Space complexity: O(mn) for the dp array.
+ * Recovery of the solution is done by backtracking through the dp array to find the positions of the characters that can be removed.
+ * This takes O(m) time, where m is the length of the source string.
+*/
 Result findMaximumRemovals(const Record& record){
     int m = record.source.length();
     int n = record.pattern.length();
@@ -25,7 +30,13 @@ Result findMaximumRemovals(const Record& record){
       }
     }
 
-    ret.removals = dp[0][0] == INT_MIN ? 0 : dp[0][0];
+    if (dp[0][0] < 0) {
+        ret.removals = 0;
+        ret.valid = false;
+        return ret;
+    }
+
+    ret.removals = dp[0][0];
 
     int i = 0;
     int j = 0;

@@ -2,17 +2,21 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: gcc-15 build active file",
-            "command": "/usr/bin/gcc-15",
+            "label": "C/C++: build Dynamic Programming app",
+            "command": "/usr/bin/g++",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${file}",
+                "-std=c++17",
+                "${workspaceFolder}/Part3_DynamicProgramming/main.cpp",
+                "${workspaceFolder}/Part3_DynamicProgramming/WeightedInterval.cpp",
+                "${workspaceFolder}/Part3_DynamicProgramming/DiscreteKnapsack.cpp",
+                "${workspaceFolder}/Part3_DynamicProgramming/MaximumRemovals.cpp",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${workspaceFolder}/Part3_DynamicProgramming/algorithm_portfolio"
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${workspaceFolder}/Part3_DynamicProgramming"
             },
             "problemMatcher": [
                 "$gcc"
